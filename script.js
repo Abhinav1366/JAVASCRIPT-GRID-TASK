@@ -1,15 +1,15 @@
 const container = document.querySelector('.container');
 const input = document.querySelector('.input');
+const submitBtn = document.querySelector('.btn');
 
-input.addEventListener('keydown',(e) =>{
-    if(e.key === "Enter"){
+submitBtn.addEventListener('click',(e) =>{
 
         if(input.value > 12){
             alert("Enter a number that is less than 12")
             return;
         };
-
-        value = +input.value;
+        submitBtn.style.display = 'none';
+        let value = +input.value;
         input.style.display = "none";
         container.classList.add('active');
         container.style.gridTemplateColumns = `repeat(${value} , 1fr)`;
@@ -28,7 +28,7 @@ input.addEventListener('keydown',(e) =>{
         const boxes = document.querySelectorAll('.box');
 
         boxes.forEach(item => {
-            item.addEventListener('click' , () => {
+            item.addEventListener('dblclick' , () => {
                 if(item.classList.contains('disabled')) return;
                 const row  = item.dataset.row;
                 const col = item.dataset.col;
@@ -46,8 +46,7 @@ input.addEventListener('keydown',(e) =>{
                 });
             });
         });
-    };
-
+    
 });
 
 
